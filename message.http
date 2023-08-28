@@ -2,7 +2,14 @@
 POST http://localhost:8081/message
 Content-Type: application/json
 
-{"hello1": "World"}
+"Hello World Hello Kido Hello MyFriends MyFriends"
+
+
+### GET key and counts
+GET http://localhost:8081/count-word/hello/60
 
 ### GET counts
-GET http://localhost:8081/count/hello
+GET http://localhost:8081/count-all
+
+### GET counts
+GET http://localhost:8081/count-range/60

@@ -28,6 +28,10 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation 'org.springframework.kafka:spring-kafka'
 	implementation 'org.apache.kafka:kafka-streams'
+	implementation 'org.springframework.kafka:spring-kafka-test'
+	implementation 'org.apache.kafka:kafka-streams-test-utils'
+	implementation 'org.awaitility:awaitility'
+	implementation 'org.rocksdb:rocksdbjni:8.3.2'
 }
 
 tasks.named('test') {

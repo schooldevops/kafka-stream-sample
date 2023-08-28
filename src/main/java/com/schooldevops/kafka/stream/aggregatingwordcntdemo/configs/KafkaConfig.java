@@ -1,7 +1,12 @@
 package com.schooldevops.kafka.stream.aggregatingwordcntdemo.configs;
 
+import com.schooldevops.kafka.stream.aggregatingwordcntdemo.topology.WordCountProcessor;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.common.serialization.Serdes;
+import org.apache.kafka.streams.KafkaStreams;
+import org.apache.kafka.streams.StreamsBuilder;
+import org.apache.kafka.streams.StreamsConfig;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,6 +18,7 @@ import org.springframework.kafka.config.TopicBuilder;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Properties;
 
 import static org.apache.kafka.streams.StreamsConfig.*;
 
@@ -43,6 +49,14 @@ public class KafkaConfig {
     @Bean
     NewTopic inputTopic() {
         return TopicBuilder.name("input-topic")
+                .partitions(1)
+                .replicas(1)
+                .build();
+    }
+
+    @Bean
+    NewTopic outputTopic() {
+        return TopicBuilder.name("output-topic")
                 .partitions(1)
                 .replicas(1)
                 .build();
